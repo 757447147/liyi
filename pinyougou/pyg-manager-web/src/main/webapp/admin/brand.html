@@ -38,7 +38,7 @@
             $scope.findPage = function(page,rows){
                 $http.get("../brand/findPage.do?page="+page+"&rows="+rows)
                     .success(function (response) {
-                        //更新记录列表
+                        //更新记录列表 
                         $scope.list=response.rows;
                         //更新总记录数
                         $scope.paginationConf.totalItems=response.total;
