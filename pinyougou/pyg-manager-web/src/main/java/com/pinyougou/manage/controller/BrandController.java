@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("brand")
 public class BrandController {
@@ -110,5 +112,10 @@ public class BrandController {
                              @RequestParam(value = "rows",defaultValue = "10") Integer rows,
                              @RequestBody TbBrand brand){
         return brandService.search(page, rows, brand);
+    }
+
+    @GetMapping("selectOptionList")
+    public List<Map<String,String>> selectOptionList(){
+        return brandService.selectOptionList();
     }
 }

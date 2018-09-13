@@ -18,12 +18,27 @@ app.controller("baseController",function ($scope) {
 
     $scope.selectedIds = [];
     //获取所有被选中品牌的id
-    $scope.deleteSelections = function ($event,id) {
+    $scope.updateSelection = function ($event,id) {
         if($event.target.checked){
             $scope.selectedIds.push(id);
         }else {
             var index = $scope.selectedIds.indexOf(id);
             $scope.selectedIds.splice(index,1);
         }
+    };
+
+    //将一个json数组格式字符串的某个key对应的值串起来显示，使用“，”分隔
+    $scope.jsonToString = function (jsonStr, key) {
+        var str = "";
+        var jsonArray = JSON.parse(jsonStr);
+        for(var i = 0; i < jsonArray.length; i++) {
+            var obj = jsonArray[i];
+            if(str.length > 0) {
+                str += ","+obj[key];
+            }else {
+                str = obj[key];
+            }
+        }
+        return str;
     };
 })

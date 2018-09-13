@@ -40,7 +40,7 @@ app.controller("specificationController", function ($scope, $controller, specifi
     };
 
     $scope.delete = function () {
-        if($scope.selectedIds.length < 1){
+        if($scope.selectedIds.length == 0){
             alert("请先选择要删除的记录");
             return;
         }
